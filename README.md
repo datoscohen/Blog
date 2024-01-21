@@ -4,5 +4,5 @@ Para lograr levantar el blog de forma local se debe ir a la carpeta `blog` y eje
 
 ```bash
 cd blog
-hugo server --ignoreCache --poll 700ms
+hugo server --ignoreCache --poll 700ms --cleanDestinationDir --gc
 ```
