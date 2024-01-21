@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "BlogDatosCohen",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/go:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/hugo:1": {
+			"extended": true,
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"nodeGypDependencies": true,
+			"version": "lts",
+			"nvmVersion": "latest"
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [1313],
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "cat /etc/os-release",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.inlineSuggest.enabled": true,
+				"editor.inlineSuggest.showToolbar": "always",
+				"cSpell.language": "es, en",
+				"git.autofetch": true,
+				"markdownlint.config": {
+					"MD041": false,
+					"MD047": false
+				}
+			},
+			"extensions": [
+				"github.copilot",
+				"github.copilot-chat",
+				"github.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"alefragnani.bookmarks",
+				"ms-vsliveshare.vsliveshare",
+				"christian-kohler.path-intellisense",
+				"streetsidesoftware.code-spell-checker",
+				"tamasfe.even-better-toml",
+				"davidanson.vscode-markdownlint",
+				"budparr.language-hugo-vscode",
+				"tomoki1207.pdf",
+				"streetsidesoftware.code-spell-checker-spanish",
+				"yzhang.markdown-all-in-one",
+				"bierner.markdown-emoji"
+			]
+		}
+	}
+	// "postCreateCommand": ""
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer"
+}
