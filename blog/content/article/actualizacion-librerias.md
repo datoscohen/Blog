@@ -2,13 +2,19 @@
 title: 'Trackear Actualizaciones de Librerías con renv y Github Actions'
 date: 2024-01-23T21:51:23Z
 draft: false
-featuredImage: 'articles/actualizacion-librerias/Portada.png'
+
 categories: ['R']
 tags: ['github actions', 'slack', 'renv']
 toc: true
 author: 'Juan P. Dugo'
-resizeImages: false
+
+featuredImage: 'articles/actualizacion-librerias/Portada.png'
 ---
+
+> TL;DR: Automatiza la búsqueda de actualizaciones de librerías en proyectos de R con renv, slackr y GitHub Actions.
+
+<!--more-->
+
 Realizar un seguimiento de las nuevas actualizaciones disponibles para las librerías de un proyecto no suele ser una tarea sencilla, sobretodo a medida que aumentan las dependencias y la cantidad de repositorios de la organización. Para automatizar este proceso tedioso de revisar manualmente cada Proyecto y estar siempre el dia con las ultimas novedades, se puede utilizar github actions junto con slack para realizar un chequeo de actualizaciones periódicamente, lo ideal es configurar un canal con todos los miembros del grupo de trabajo para mantener a todos los integrantes informados.
 
 ## Requisitos
@@ -18,7 +24,7 @@ Realizar un seguimiento de las nuevas actualizaciones disponibles para las libre
 - [Github Actions](https://docs.github.com/es/actions): Permite automatizar flujos de trabajo mediante eventos en el repositorio.
 - [slackr](https://github.com/mrkaye97/slackr): Vamos a utilizar la librería de R que permite acceder a la api de slack para enviar mensajes. Para poder conectarse se necesita generar las credenciales, esto se puede realizar de multiples manera y recomendamos que se consulten los [vignettes](https://github.com/mrkaye97/slackr#vignettes) disponibles.
 
-## Estructura general del proyecto
+### Estructura general del proyecto
 
 ``` bash
 .
@@ -38,7 +44,7 @@ Realizar un seguimiento de las nuevas actualizaciones disponibles para las libre
 
 ## Pasos a seguir
 
-- Crear un repositorio en github y clonarlo localmente.
+- Crear un repositorio en github y clonarlo localmente. En caso de haber utilizado Rstudio van a tener un archivo `.Rproj`.
 - Dentro del directorio del proyecto, ejecutar `renv::init()` para inicializar renv
 - Crear un description file, se puede usar `usethis::use_description()`
 - Para agregar una nueva librería al description, se puede utilizar `usethis::use_package("package_name")` y luego `renv::snapshot()`
@@ -84,9 +90,12 @@ jobs:
             incoming_webhook_url = Sys.getenv("SLACK_WEBHOOK_URL")
           )
           
+          update_lock <- as.logical(Sys.getenv("UPDATE_LOCK"))
+
           sink("logs")
-          updates <- renv::update(check = as.logical(Sys.getenv("UPDATE_LOCK")))
+          renv::update(check = !update_lock)
           slackr::slackr(readLines("logs"))
+          if (isTRUE(update_lock)) {renv::snapshot()}
 
         shell: Rscript {0}
 
@@ -111,3 +120,12 @@ jobs:
 - El paso `Auto Commit` realiza un commit automático si se ha activado la opción `update_lock` durante la ejecución anterior.
 - Configuración de Secretos y Variables de Entorno:
 - El flujo de trabajo utiliza secretos y variables de entorno para garantizar la seguridad y la configuración personalizada. Estos incluyen el token de GitHub (`GITHUB_TOKEN`), el canal de Slack (`SLACK_CHANNEL`), el token de Slack (`SLACK_TOKEN`), y la URL del webhook de Slack (`SLACK_WEBHOOK_URL`).
+
+Ahora si, ¡hemos finalizado los preparativos y estamos listos para utilizar nuestro action! 🚀
+
+## Resultados
+
+Se enviará un mensaje de slack con el siguiente formato cuando existan librerías disponibles.
+![Slack Message](/articles/actualizacion-librerias/check_updates.png)
+
+En los próximos artículos, vamos a estar hablando sobre cómo configurar slackr y enviar mensajes personalizados utilizando la sintaxis propia de Slack.
