@@ -42,7 +42,7 @@ Realizar un seguimiento de las nuevas actualizaciones disponibles para las libre
 - Dentro del directorio del proyecto, ejecutar `renv::init()` para inicializar renv
 - Crear un description file, se puede usar `usethis::use_description()`
 - Para agregar una nueva librería al description, se puede utilizar `usethis::use_package("package_name")` y luego `renv::snapshot()`
-- Finalmente agregamos un yaml con el workflow. Para esto tambien se puede utilizar usethis::use_github_actions()
+- Finalmente agregamos un yaml con el workflow. Para esto también se puede utilizar usethis::use_github_actions()
 
 ``` yaml
 on:
