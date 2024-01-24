@@ -93,7 +93,7 @@ jobs:
           update_lock <- as.logical(Sys.getenv("UPDATE_LOCK"))
           
           sink("logs")
-          renv::update(check = update_lock)
+          renv::update(check = !update_lock)
           slackr::slackr(readLines("logs"))
           if (isTRUE(update_lock)) {renv::snapshot()}
 
