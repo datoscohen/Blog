@@ -1,5 +1,5 @@
 ---
-title: "Archivo"
+title: "Archive"
 type: archive
 excludeFromIndex: true
 ---
