@@ -14,7 +14,7 @@ git submodule update
 Una vez que tenemos el submodulo descargado realizar el siguiente comando:
 
 ```bash
-hugo server --ignoreCache --poll 700ms --cleanDestinationDir --gc
+hugo server --ignoreCache --poll 700ms --cleanDestinationDir --gc --config config-local.toml
 ```
 
 Una explicación más detallada del proceso de trabajar con módulos se puede encontrar [aquí](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
