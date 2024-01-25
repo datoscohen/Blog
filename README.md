@@ -11,16 +11,24 @@ git submodule init
 git submodule update
 ```
 
-Una vez que tenemos el submodulo descargado, debemos de ir a la carpeta `blog` y ejecutar el siguiente comando:
+Una vez que tenemos el submodulo descargado realizar el siguiente comando:
 
 ```bash
-cd blog
 hugo server --ignoreCache --poll 700ms --cleanDestinationDir --gc
 ```
 
 Una explicación más detallada del proceso de trabajar con módulos se puede encontrar [aquí](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 ## Extras
+
+### Instalar theme como un submodulo
+
+Se deben de correr los siguientes comandos:
+
+```bash
+git submodule add https://github.com/Lednerb/bilberry-hugo-theme.git themes/bilberry-hugo-theme
+git commit -am 'Add DbConnector module'
+```
 
 ### Eliminar submodulo
 
