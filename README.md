@@ -17,3 +17,17 @@ Una vez que tenemos el submodulo descargado, debemos de ir a la carpeta `blog` y
 cd blog
 hugo server --ignoreCache --poll 700ms --cleanDestinationDir --gc
 ```
+
+Una explicación más detallada del proceso de trabajar con módulos se puede encontrar [aquí](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
+## Extras
+
+### Eliminar submodulo
+
+Para eliminar un submodulo debemos de ejecutar el siguiente comando:
+
+```bash
+git rm <submodule path> && git commit
+```
+
+Se puede encontrar mayor información en este [link](https://git-scm.com/docs/gitsubmodules), dentro del apartado **FORMS**.
