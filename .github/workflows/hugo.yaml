@@ -58,7 +58,10 @@ jobs:
         run: |
           hugo \
             --gc \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          > public/.nojekyll
+          sed -i "s~webfonts~Blog/webfonts~g" public/theme.css
+          sed -i "s~/fonts~/Blog/fonts~g" public/theme.css
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
