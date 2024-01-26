@@ -57,6 +57,7 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo \
+            --environment development \
             --gc \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
           > public/.nojekyll
