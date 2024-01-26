@@ -3,7 +3,7 @@ baseURL = "https://datoscohen.github.io/Blog/"
 canonifyURLs = true
 # Option 1 (recommended): adding the theme as a Hugo module
 # theme = "github.com/Lednerb/bilberry-hugo-theme/v4"
-
+relativeURLs = true
 # Options 2 and 3: cloning/copying the theme files
 theme = "bilberry-hugo-theme/v4"
 
