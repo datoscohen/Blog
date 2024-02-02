@@ -108,7 +108,7 @@ jobs:
 
 ```
 
-### Workflow Explanation:
+### Workflow Explanation
 
 - The workflow is triggered on a push to the `main` or `master` branches, manually with `workflow_dispatch`, and also runs automatically every 3 hours (`cron: '0 9-23/3 * * *'`).
 - Necessary dependencies are installed using `sudo apt-get install -y libsodium-dev`. In cases where libraries are compiled from source, system libraries are required. As an example, `libsodium-dev` is used, which is required for compiling the `sodium` package.

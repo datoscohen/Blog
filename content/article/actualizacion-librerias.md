@@ -107,7 +107,7 @@ jobs:
           file_pattern: 'renv.lock'
 ```
 
-### Explicación del flujo de trabajo:
+### Explicación del flujo de trabajo
 
 - El flujo de trabajo se activa cuando hay un push a las ramas principales `main` o `master`, manualmente con `workflow_dispatch` y también se ejecuta automáticamente cada 3 horas (`cron: '0 9-23/3 * * *'`).
 - Se instalan las dependencias necesarias usando `sudo apt-get install -y libsodium-dev`. En los casos donde las librerías se compilan desde código fuente, es necesario contar con librerías de sistema. A modo de ejemplo puse `libsodium-dev` que se utiliza para compilar el paquete `sodium`.
