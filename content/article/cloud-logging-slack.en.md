@@ -37,9 +37,7 @@ The console has a [specific syntax](https://cloud.google.com/logging/docs/view/b
 
 ### Google Cloud Monitoring in Slack
 
-In the Slack Apps section, search for **Google Cloud Monitoring** and add it to your workspace. Then, use the following command in the channel to invite the app:
-
-![Invite Google Cloud Monitoring to Slack](/articles/cloud-logging-slack/invitar-cloud-monitoring.png)
+To add Google Cloud Monitoring to Slack and invite it to a channel, you must follow the steps in this [link](https://cloud.google.com/monitoring/support/notification-options#slack)
 
 ### Necessary Permissions
 
