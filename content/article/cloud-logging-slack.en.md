@@ -3,7 +3,7 @@ title: "Sending Google Cloud Logging Notifications to Slack"
 date: 2024-01-30T17:33:49Z
 draft: false
 
-categories: ['gcp']
+categories: ['GCP']
 tags: ['cloud logging', 'slack']
 toc: true
 author: 'Juan Cruz Parise'
