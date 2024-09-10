@@ -175,7 +175,8 @@ disqusShortname = ""
   [Languages.en]
     weight = 2
     title = "Datos Cohen Blog"
-    subtitle = "Various topics in the area of Data & Business Intelligence"
+    [Languages.en.params]
+      subtitle = "Various topics in the area of Data & Business Intelligence"
 
 [markup]
   defaultMarkdownHandler = 'goldmark'
